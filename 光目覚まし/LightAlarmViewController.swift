@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController {
+class LightAlarmViewController: UIViewController {
 
     @IBOutlet weak var lightSlider: UISlider!
     
