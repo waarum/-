@@ -8,8 +8,11 @@
 
 import UIKit
 import AVFoundation
+import Foundation
 
 class LightAlarmViewController: UIViewController {
+    
+    
 
     @IBOutlet weak var lightSlider: UISlider!
     
@@ -24,7 +27,29 @@ class LightAlarmViewController: UIViewController {
         toggleTorch(with: sender.value)
     }
     
+    @IBAction func timerStartButtonAction(_ sender: UIButton) {
+        lightUpTimer(interval: 1)
+    }
+    
+    
     //MARK: - Timer
+    func lightUpTimer(interval: Double){
+        
+        var lightStrength: Float = 0
+        let numberOfIntervals = 10
+        var currentinterval = 0
+        
+        Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { (Timer) in
+            currentinterval += 1
+            lightStrength = Float(currentinterval) / Float(numberOfIntervals)
+            self.toggleTorch(with: lightStrength)
+            print(lightStrength)
+            if currentinterval >= 10 {
+                Timer.invalidate()
+            }
+            self.toggleTorch(with: lightStrength)
+        }
+    }
     
     
 
