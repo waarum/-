@@ -11,6 +11,8 @@ import AVFoundation
 import Foundation
 
 class LightAlarmViewController: UIViewController {
+    
+    
     let lightIntervals = [1,2,3,4,5,6,7,8,9,10]
     
     var lightInterval = 3
@@ -24,6 +26,8 @@ class LightAlarmViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        intervalPicker.delegate = self
+        intervalPicker.dataSource = self
     }
     
     //MARK: - Slider (for Test)
@@ -110,22 +114,28 @@ class LightAlarmViewController: UIViewController {
             print("Torch is not available")
         }
     }
+    
+
+    
+    
 }
 
-extension LightAlarmViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+//MARK: - Light up interval picker settings
+
+extension LightAlarmViewController:  UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return lightIntervals.count
+        return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return 1
+        return lightIntervals.count
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return String(lightIntervals[row])
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        lightInterval = lightIntervals[row]
+        lightInterval = lightIntervals[row] * 60
+        print("Light up interval is \(lightInterval)")
     }
-    
 }

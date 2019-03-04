@@ -50,7 +50,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="intervalPicker" destination="Lgd-iS-LYw" id="4b7-ae-5LE"/>
+                        <outlet property="intervalPicker" destination="Lgd-iS-LYw" id="AmT-zx-zfv"/>
                         <outlet property="lightSlider" destination="yfC-Wt-6NY" id="Gak-Y0-Aiu"/>
                         <outlet property="wakeTimePicker" destination="cLc-5P-gJo" id="UzW-p3-6Fy"/>
                     </connections>
