@@ -11,11 +11,15 @@ import AVFoundation
 import Foundation
 
 class LightAlarmViewController: UIViewController {
+    let lightIntervals = [1,2,3,4,5,6,7,8,9,10]
+    
+    var lightInterval = 3
     
     @IBOutlet weak var lightSlider: UISlider!
     
     @IBOutlet weak var wakeTimePicker: UIDatePicker!
     
+    @IBOutlet weak var intervalPicker: UIPickerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,13 +44,13 @@ class LightAlarmViewController: UIViewController {
     
     
     //MARK: - Timer
-    func lightUpTimer(interval: Double){
+    func lightUpTimer(){
         
         var lightStrength: Float = 0
         let numberOfIntervals = 10
         var currentinterval = 0
         
-        Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { (Timer) in
+        Timer.scheduledTimer(withTimeInterval: Double(lightInterval), repeats: true) { (Timer) in
             currentinterval += 1
             lightStrength = Float(currentinterval) / Float(numberOfIntervals)
             self.toggleTorch(with: lightStrength)
@@ -65,7 +69,7 @@ class LightAlarmViewController: UIViewController {
         let sleepInterval = calculateInterval()
         print("start")
         Timer.scheduledTimer(withTimeInterval: sleepInterval, repeats: false) { (Timer) in
-            self.lightUpTimer(interval: 1)
+            self.lightUpTimer()
             print("end")
         }
     }
@@ -108,3 +112,20 @@ class LightAlarmViewController: UIViewController {
     }
 }
 
+extension LightAlarmViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return lightIntervals.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return String(lightIntervals[row])
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        lightInterval = lightIntervals[row]
+    }
+    
+}
