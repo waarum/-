@@ -12,9 +12,10 @@ import Foundation
 
 class LightAlarmViewController: UIViewController {
     
-    
-
     @IBOutlet weak var lightSlider: UISlider!
+    
+    @IBOutlet weak var wakeTimePicker: UIDatePicker!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,12 @@ class LightAlarmViewController: UIViewController {
     
     @IBAction func timerStartButtonAction(_ sender: UIButton) {
         lightUpTimer(interval: 1)
+    }
+    
+    //MARK: - Set Time
+    func setTime() -> Date {
+        let wakeTime = wakeTimePicker.date
+        return wakeTime
     }
     
     
@@ -49,6 +56,8 @@ class LightAlarmViewController: UIViewController {
             }
             self.toggleTorch(with: lightStrength)
         }
+        
+        print(setTime())
     }
     
     
