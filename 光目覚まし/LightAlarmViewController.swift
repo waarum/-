@@ -29,7 +29,7 @@ class LightAlarmViewController: UIViewController {
     }
     
     @IBAction func timerStartButtonAction(_ sender: UIButton) {
-        lightUpTimer(interval: 1)
+        sleepingTimer()
     }
     
     //MARK: - Set Time
@@ -60,8 +60,25 @@ class LightAlarmViewController: UIViewController {
         print(setTime())
     }
     
-    
+    //MARK: - Start the light up timer
+    func sleepingTimer(){
+        let sleepInterval = calculateInterval()
+        print("start")
+        Timer.scheduledTimer(withTimeInterval: sleepInterval, repeats: false) { (Timer) in
+            self.lightUpTimer(interval: 1)
+            print("end")
+        }
+    }
 
+    //MARK: - Caluculate sleep Interval
+    func calculateInterval() -> Double {
+        var interval = wakeTimePicker.date.timeIntervalSinceNow
+        if interval < 0 {
+            interval = 864000 + interval
+        }
+        print(interval)
+        return interval
+    }
 
     //MARK: - Light Manipulation
     func toggleTorch(with lightValue: Float) {
