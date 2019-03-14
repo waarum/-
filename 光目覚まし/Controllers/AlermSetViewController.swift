@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 import Foundation
 
-class LightAlarmViewController: UIViewController {
+class AlermSetViewController: UIViewController {
     
     
     let lightIntervals = [1,2,3,4,5,6,7,8,9,10]
@@ -25,7 +25,6 @@ class LightAlarmViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         intervalPicker.delegate = self
         intervalPicker.dataSource = self
     }
@@ -37,6 +36,7 @@ class LightAlarmViewController: UIViewController {
     }
     
     @IBAction func timerStartButtonAction(_ sender: UIButton) {
+        UIApplication.shared.isIdleTimerDisabled = true
         sleepingTimer()
     }
     
@@ -122,7 +122,7 @@ class LightAlarmViewController: UIViewController {
 
 //MARK: - Light up interval picker settings
 
-extension LightAlarmViewController:  UIPickerViewDataSource, UIPickerViewDelegate {
+extension AlermSetViewController:  UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
