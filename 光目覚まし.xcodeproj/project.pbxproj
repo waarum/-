@@ -8,22 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		FE028C27221163E000D34438 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE028C26221163E000D34438 /* AppDelegate.swift */; };
-		FE028C29221163E000D34438 /* AlermSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE028C28221163E000D34438 /* AlermSetViewController.swift */; };
+		FE028C29221163E000D34438 /* AlarmSetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE028C28221163E000D34438 /* AlarmSetViewController.swift */; };
 		FE028C2C221163E000D34438 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE028C2A221163E000D34438 /* Main.storyboard */; };
 		FE028C2E221163E400D34438 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE028C2D221163E400D34438 /* Assets.xcassets */; };
 		FE028C31221163E400D34438 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE028C2F221163E400D34438 /* LaunchScreen.storyboard */; };
 		FE19C52F223A952500FECA38 /* SleepingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE19C52E223A952500FECA38 /* SleepingViewController.swift */; };
+		FE80155A223B784A006548B2 /* ColorHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE801559223B784A006548B2 /* ColorHex.swift */; };
+		FE80155E223B9818006548B2 /* 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FE80155D223B9818006548B2 /* 1.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FE028C23221163E000D34438 /* 光目覚まし.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "光目覚まし.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE028C26221163E000D34438 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FE028C28221163E000D34438 /* AlermSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlermSetViewController.swift; sourceTree = "<group>"; };
+		FE028C28221163E000D34438 /* AlarmSetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmSetViewController.swift; sourceTree = "<group>"; };
 		FE028C2B221163E000D34438 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FE028C2D221163E400D34438 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FE028C30221163E400D34438 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE028C32221163E400D34438 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE19C52E223A952500FECA38 /* SleepingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepingViewController.swift; sourceTree = "<group>"; };
+		FE801559223B784A006548B2 /* ColorHex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHex.swift; sourceTree = "<group>"; };
+		FE80155D223B9818006548B2 /* 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1.mp3; sourceTree = "<group>"; };
 		FEA8BEAD223AB78400980B4B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		FEA8BEAE223AB78400980B4B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -59,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				FE028C26221163E000D34438 /* AppDelegate.swift */,
+				FE80155D223B9818006548B2 /* 1.mp3 */,
 				FE19C530223A956400FECA38 /* Controllers */,
 				FE19C531223A958E00FECA38 /* Views */,
 				FE19C532223A95A000FECA38 /* Supporting Files */,
@@ -70,7 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				FE19C52E223A952500FECA38 /* SleepingViewController.swift */,
-				FE028C28221163E000D34438 /* AlermSetViewController.swift */,
+				FE028C28221163E000D34438 /* AlarmSetViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -87,6 +92,7 @@
 		FE19C532223A95A000FECA38 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FE801559223B784A006548B2 /* ColorHex.swift */,
 				FE028C32221163E400D34438 /* Info.plist */,
 				FE028C2D221163E400D34438 /* Assets.xcassets */,
 			);
@@ -154,6 +160,7 @@
 				FE028C31221163E400D34438 /* LaunchScreen.storyboard in Resources */,
 				FE028C2E221163E400D34438 /* Assets.xcassets in Resources */,
 				FE028C2C221163E000D34438 /* Main.storyboard in Resources */,
+				FE80155E223B9818006548B2 /* 1.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,7 +172,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE19C52F223A952500FECA38 /* SleepingViewController.swift in Sources */,
-				FE028C29221163E000D34438 /* AlermSetViewController.swift in Sources */,
+				FE80155A223B784A006548B2 /* ColorHex.swift in Sources */,
+				FE028C29221163E000D34438 /* AlarmSetViewController.swift in Sources */,
 				FE028C27221163E000D34438 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
