@@ -43,6 +43,7 @@
                                 <state key="normal" title="startButton"/>
                                 <connections>
                                     <action selector="timerStartButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="y8I-nF-N9N"/>
+                                    <segue destination="deP-PV-JcP" kind="presentation" identifier="toSleepingView" id="xfd-pw-Pin"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -53,17 +54,16 @@
                         <outlet property="intervalPicker" destination="Lgd-iS-LYw" id="AmT-zx-zfv"/>
                         <outlet property="lightSlider" destination="yfC-Wt-6NY" id="Gak-Y0-Aiu"/>
                         <outlet property="wakeTimePicker" destination="cLc-5P-gJo" id="UzW-p3-6Fy"/>
-                        <segue destination="deP-PV-JcP" kind="show" identifier="toSleepingView" id="BKb-gk-eBe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="10" y="-2"/>
+            <point key="canvasLocation" x="-198" y="3"/>
         </scene>
-        <!--View Controller-->
+        <!--Sleeping View Controller-->
         <scene sceneID="oOC-R7-usR">
             <objects>
-                <viewController id="deP-PV-JcP" sceneMemberID="viewController">
+                <viewController id="deP-PV-JcP" customClass="SleepingViewController" customModule="光目覚まし" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tfw-2i-fot">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -72,19 +72,27 @@
                                 <rect key="frame" x="138" y="168" width="99" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="47"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.65525320061167514" green="0.42222699447687589" blue="0.053960655626767003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fen-2H-cus">
                                 <rect key="frame" x="164" y="462" width="47" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <state key="normal" title="Stop"/>
+                                <state key="normal" title="Stop">
+                                    <color key="titleColor" red="0.65525320060000003" green="0.42222699450000001" blue="0.05396065563" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopButton:" destination="deP-PV-JcP" eventType="touchUpInside" id="wEu-Mr-exx"/>
+                                </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                         <viewLayoutGuide key="safeArea" id="BWS-54-z0m"/>
                     </view>
+                    <connections>
+                        <outlet property="timeLabel" destination="RdX-nd-Tzj" id="PGn-3R-6Rj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hvp-Dx-pt2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

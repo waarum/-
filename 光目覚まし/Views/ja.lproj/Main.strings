@@ -1,0 +1,9 @@
+
+/* Class = "UIButton"; normalTitle = "Stop"; ObjectID = "Fen-2H-cus"; */
+"Fen-2H-cus.normalTitle" = "Stop";
+
+/* Class = "UIButton"; normalTitle = "startButton"; ObjectID = "G7P-V6-Aey"; */
+"G7P-V6-Aey.normalTitle" = "startButton";
+
+/* Class = "UILabel"; text = "Time"; ObjectID = "RdX-nd-Tzj"; */
+"RdX-nd-Tzj.text" = "Time";

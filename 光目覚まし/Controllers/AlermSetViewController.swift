@@ -12,10 +12,13 @@ import Foundation
 
 class AlermSetViewController: UIViewController {
     
+    let userDefaults = UserDefaults.standard
     
     let lightIntervals = [1,2,3,4,5,6,7,8,9,10]
     
-    var lightInterval = 3
+    var lightUpInterval = 180
+    
+    let sleepingViewController = SleepingViewController()
     
     @IBOutlet weak var lightSlider: UISlider!
     
@@ -31,89 +34,92 @@ class AlermSetViewController: UIViewController {
     
     //MARK: - Slider (for Test)
     
-    @IBAction func sliter(_ sender: UISlider) {
-        toggleTorch(with: sender.value)
-    }
+//    @IBAction func sliter(_ sender: UISlider) {
+//        toggleTorch(with: sender.value)
+//    }
     
     @IBAction func timerStartButtonAction(_ sender: UIButton) {
-        UIApplication.shared.isIdleTimerDisabled = true
-        sleepingTimer()
+//        UIApplication.shared.isIdleTimerDisabled = true
+//        sleepingTimer()
+        userDefaults.set("\(lightUpInterval)", forKey: "lightUpInterval")
+        userDefaults.set("\(wakeTimePicker.date.timeIntervalSinceNow)", forKey: "wakeTime")
+        userDefaults.synchronize()
     }
     
-    //MARK: - Set Time
-    func setTime() -> Date {
-        let wakeTime = wakeTimePicker.date
-        return wakeTime
-    }
+//    //MARK: - Set Time
+//    func setTime() -> Date {
+//        let wakeTime = wakeTimePicker.date
+//        return wakeTime
+//    }
+//    //MARK: - Timer
+//    func lightUpTimer(){
+//
+//        var lightStrength: Float = 0
+//        let numberOfIntervals = 10
+//        var currentinterval = 0
+//
+//        Timer.scheduledTimer(withTimeInterval: Double(lightUpInterval), repeats: true) { (Timer) in
+//            currentinterval += 1
+//            lightStrength = Float(currentinterval) / Float(numberOfIntervals)
+//            self.toggleTorch(with: lightStrength)
+//            print(lightStrength)
+//            if currentinterval >= 10 {
+//                Timer.invalidate()
+//            }
+//            self.toggleTorch(with: lightStrength)
+//        }
+//
+//        print(setTime())
+//    }
+//
+//    //MARK: - Start the light up timer
+//    func sleepingTimer(){
+//        let sleepInterval = calculateInterval()
+//        print("start")
+//        Timer.scheduledTimer(withTimeInterval: sleepInterval, repeats: false) { (Timer) in
+//            self.lightUpTimer()
+//            print("end")
+//        }
+//    }
+//
+//    //MARK: - Caluculate sleep Interval
+//    func calculateInterval() -> Double {
+//        var interval = wakeTimePicker.date.timeIntervalSinceNow
+//        if interval < 0 {
+//            interval = 864000 + interval
+//        }
+//        print(interval)
+//        return interval
+//    }
+//
+//    //MARK: - Light Manipulation
+//    func toggleTorch(with lightValue: Float) {
+//        guard let device = AVCaptureDevice.default(for: .video) else { return }
+//
+//        if device.hasTorch {
+//            do {
+//                try device.lockForConfiguration()
+//
+//                if lightValue == 0 {
+//                    device.torchMode = .off
+//                } else {
+//                    do {
+//                        try device.setTorchModeOn(level: lightValue)
+//                    } catch {
+//                        print("error toggling light")
+//                    }
+//                }
+//
+//                device.unlockForConfiguration()
+//            } catch {
+//                print("Torch could not be used")
+//            }
+//        } else {
+//            print("Torch is not available")
+//        }
+//    }
     
-    
-    //MARK: - Timer
-    func lightUpTimer(){
-        
-        var lightStrength: Float = 0
-        let numberOfIntervals = 10
-        var currentinterval = 0
-        
-        Timer.scheduledTimer(withTimeInterval: Double(lightInterval), repeats: true) { (Timer) in
-            currentinterval += 1
-            lightStrength = Float(currentinterval) / Float(numberOfIntervals)
-            self.toggleTorch(with: lightStrength)
-            print(lightStrength)
-            if currentinterval >= 10 {
-                Timer.invalidate()
-            }
-            self.toggleTorch(with: lightStrength)
-        }
-        
-        print(setTime())
-    }
-    
-    //MARK: - Start the light up timer
-    func sleepingTimer(){
-        let sleepInterval = calculateInterval()
-        print("start")
-        Timer.scheduledTimer(withTimeInterval: sleepInterval, repeats: false) { (Timer) in
-            self.lightUpTimer()
-            print("end")
-        }
-    }
 
-    //MARK: - Caluculate sleep Interval
-    func calculateInterval() -> Double {
-        var interval = wakeTimePicker.date.timeIntervalSinceNow
-        if interval < 0 {
-            interval = 864000 + interval
-        }
-        print(interval)
-        return interval
-    }
-
-    //MARK: - Light Manipulation
-    func toggleTorch(with lightValue: Float) {
-        guard let device = AVCaptureDevice.default(for: .video) else { return }
-        
-        if device.hasTorch {
-            do {
-                try device.lockForConfiguration()
-                
-                if lightValue == 0 {
-                    device.torchMode = .off
-                } else {
-                    do {
-                        try device.setTorchModeOn(level: lightValue)
-                    } catch {
-                        print("error toggling light")
-                    }
-                }
-                
-                device.unlockForConfiguration()
-            } catch {
-                print("Torch could not be used")
-            }
-        } else {
-            print("Torch is not available")
-        }
-    }
     
 
     
@@ -135,7 +141,7 @@ extension AlermSetViewController:  UIPickerViewDataSource, UIPickerViewDelegate 
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        lightInterval = lightIntervals[row] * 60
-        print("Light up interval is \(lightInterval)")
+        lightUpInterval = lightIntervals[row] * 60
+        print("Light up interval is \(lightUpInterval)")
     }
 }
