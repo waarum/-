@@ -12,12 +12,6 @@ import Foundation
 
 class AlarmSetViewController: UIViewController {
     
-    let lightIntervals = [1,2,3,4,5,6,7,8,9,10]
-    
-    var lightUpInterval = 180
-    
-    let sleepingViewController = SleepingViewController()
-    
     @IBOutlet weak var lightSlider: UISlider!
     
     @IBOutlet weak var wakeTimePicker: UIDatePicker!
@@ -26,8 +20,6 @@ class AlarmSetViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        intervalPicker.delegate = self
-        intervalPicker.dataSource = self
         intervalPicker.selectRow(UserDefaults.standard.integer(forKey: "lightUpInterval") / 60 - 1, inComponent: 0, animated: false)
     }
     
@@ -69,27 +61,4 @@ class AlarmSetViewController: UIViewController {
 
     
     
-}
-
-//MARK: - Light up interval picker settings
-
-extension AlarmSetViewController:  UIPickerViewDataSource, UIPickerViewDelegate {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return lightIntervals.count
-    }
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return String(lightIntervals[row])
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        // The next line is for debuging
-        lightUpInterval = lightIntervals[row] * 60
-        UserDefaults.standard.set("\(lightUpInterval)", forKey: "lightUpInterval")
-        UserDefaults.standard.synchronize()
-        print("Light up interval is \(lightUpInterval)")
-    }
 }

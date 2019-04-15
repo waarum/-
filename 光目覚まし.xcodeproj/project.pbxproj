@@ -15,6 +15,7 @@
 		FE19C52F223A952500FECA38 /* SleepingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE19C52E223A952500FECA38 /* SleepingViewController.swift */; };
 		FE80155A223B784A006548B2 /* ColorHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE801559223B784A006548B2 /* ColorHex.swift */; };
 		FE80155E223B9818006548B2 /* 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FE80155D223B9818006548B2 /* 1.mp3 */; };
+		FEC70E532264AE9F0059303E /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC70E522264AE9F0059303E /* SettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		FE80155D223B9818006548B2 /* 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1.mp3; sourceTree = "<group>"; };
 		FEA8BEAD223AB78400980B4B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		FEA8BEAE223AB78400980B4B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		FEC70E522264AE9F0059303E /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				FE19C52E223A952500FECA38 /* SleepingViewController.swift */,
+				FEC70E522264AE9F0059303E /* SettingViewController.swift */,
 				FE028C28221163E000D34438 /* AlarmSetViewController.swift */,
 			);
 			path = Controllers;
@@ -180,6 +183,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEC70E532264AE9F0059303E /* SettingViewController.swift in Sources */,
 				FE19C52F223A952500FECA38 /* SleepingViewController.swift in Sources */,
 				FE80155A223B784A006548B2 /* ColorHex.swift in Sources */,
 				FE028C29221163E000D34438 /* AlarmSetViewController.swift in Sources */,
