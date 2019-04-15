@@ -65,6 +65,7 @@
 				FE028C26221163E000D34438 /* AppDelegate.swift */,
 				FE80155D223B9818006548B2 /* 1.mp3 */,
 				FE19C530223A956400FECA38 /* Controllers */,
+				FE7DEDFE2258313200589545 /* Models */,
 				FE19C531223A958E00FECA38 /* Views */,
 				FE19C532223A95A000FECA38 /* Supporting Files */,
 			);
@@ -97,6 +98,13 @@
 				FE028C2D221163E400D34438 /* Assets.xcassets */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FE7DEDFE2258313200589545 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +149,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ja,
 			);
 			mainGroup = FE028C1A221163DF00D34438;
 			productRefGroup = FE028C24221163E000D34438 /* Products */;
