@@ -11,30 +11,30 @@ import AVFoundation
 import Foundation
 import AudioToolbox
 
-class SleepingViewController: UIViewController, AVAudioPlayerDelegate {
+class SleepingViewController: UIViewController, AVAudioPlayerDelegate, TimerModelDelegate {
     
     var audioPlayer:AVAudioPlayer!
     
-    let userDefaults = UserDefaults.standard
+    var timerModel = TimerModel()
     
-    var lightUpInterval: Int?
+    let lightUpInterval = UserDefaults.standard.integer(forKey: "lightUpInterval")
     
     var timer: Timer!
-
+    
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet var backGroundView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.shared.isIdleTimerDisabled = true
-        lightUpInterval = userDefaults.integer(forKey: "lightUpInterval")
-        print(lightUpInterval!)
+        print(lightUpInterval)
         prepareAudio()
         sleepingTimer()
         toggleBackLight(with: 0)
         backGroundView.backgroundColor = UIColor.black
+        timerModel.delegate = self
     }
-
+    
     @IBAction func stopButton(_ sender: UIButton) {
         UIApplication.shared.isIdleTimerDisabled = false
         timer.invalidate()
@@ -52,7 +52,7 @@ class SleepingViewController: UIViewController, AVAudioPlayerDelegate {
         var lightStrength: Float = 0
         let numberOfIntervals = 10
         var currentinterval = 0
-        timer = Timer.scheduledTimer(withTimeInterval: Double(lightUpInterval!), repeats: true) { (timer) in
+        timer = Timer.scheduledTimer(withTimeInterval: Double(lightUpInterval), repeats: true) { (timer) in
             print("light up timer fires")
             currentinterval += 1
             lightStrength = Float(currentinterval) / Float(numberOfIntervals)
@@ -70,7 +70,7 @@ class SleepingViewController: UIViewController, AVAudioPlayerDelegate {
             return
         }
         print(1)
-//        print(AlermSetViewController().setTime())
+        //        print(AlermSetViewController().setTime())
     }
     
     //MARK: - Start the light up timer
@@ -78,7 +78,9 @@ class SleepingViewController: UIViewController, AVAudioPlayerDelegate {
         let sleepInterval = calculateInterval()
         print("start")
         timer = Timer.scheduledTimer(withTimeInterval: sleepInterval, repeats: false) { (Timer) in
-        print("end")
+            print("end")
+            self.timeLabel.text = "おはよう！"
+            self.timeLabel.textColor = UIColor.black
             self.backGroundView.backgroundColor = UIColor.white
             self.lightUpTimer()
         }
@@ -86,31 +88,31 @@ class SleepingViewController: UIViewController, AVAudioPlayerDelegate {
     
     //MARK: - Caluculate sleep Interval
     func calculateInterval() -> Double {
-        var interval = userDefaults.double(forKey: "wakeTime")
+        var interval = UserDefaults.standard.double(forKey: "wakeTime")
         if interval < 0 {
             interval = 864000 + interval
         }
-        interval = interval - Double(lightUpInterval!) * 10
-//        if interval < 0 {
-//            self.dismiss(animated: true, completion: nil)
-//        }
+        interval = interval - Double(lightUpInterval) * 10
+        //        if interval < 0 {
+        //            self.dismiss(animated: true, completion: nil)
+        //        }
         print("Sleep for \(interval) seconds")
         return interval
     }
     
     //MARK: - Light Manipulation
-    func toggleTorch(with lightValue: Float) {
+    func toggleTorch(with brightness: Float) {
         guard let device = AVCaptureDevice.default(for: .video) else { return }
         
         if device.hasTorch {
             do {
                 try device.lockForConfiguration()
                 
-                if lightValue == 0 {
+                if brightness == 0 {
                     device.torchMode = .off
                 } else {
                     do {
-                        try device.setTorchModeOn(level: lightValue)
+                        try device.setTorchModeOn(level: brightness)
                     } catch {
                         print("error toggling light")
                     }
@@ -126,8 +128,8 @@ class SleepingViewController: UIViewController, AVAudioPlayerDelegate {
         
     }
     
-    func toggleBackLight(with lightValue: Float){
-        UIScreen.main.brightness = CGFloat(lightValue)
+    func toggleBackLight(with brightness: Float){
+        UIScreen.main.brightness = CGFloat(brightness)
     }
 }
 

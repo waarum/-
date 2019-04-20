@@ -16,6 +16,7 @@
 		FE80155A223B784A006548B2 /* ColorHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE801559223B784A006548B2 /* ColorHex.swift */; };
 		FE80155E223B9818006548B2 /* 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FE80155D223B9818006548B2 /* 1.mp3 */; };
 		FEC70E532264AE9F0059303E /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC70E522264AE9F0059303E /* SettingViewController.swift */; };
+		FEC70E552264B8090059303E /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC70E542264B8090059303E /* TimerModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		FEA8BEAD223AB78400980B4B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		FEA8BEAE223AB78400980B4B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		FEC70E522264AE9F0059303E /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		FEC70E542264B8090059303E /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 		FE7DEDFE2258313200589545 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FEC70E542264B8090059303E /* TimerModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				FEC70E532264AE9F0059303E /* SettingViewController.swift in Sources */,
 				FE19C52F223A952500FECA38 /* SleepingViewController.swift in Sources */,
 				FE80155A223B784A006548B2 /* ColorHex.swift in Sources */,
+				FEC70E552264B8090059303E /* TimerModel.swift in Sources */,
 				FE028C29221163E000D34438 /* AlarmSetViewController.swift in Sources */,
 				FE028C27221163E000D34438 /* AppDelegate.swift in Sources */,
 			);

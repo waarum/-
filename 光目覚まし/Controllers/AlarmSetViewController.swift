@@ -16,11 +16,8 @@ class AlarmSetViewController: UIViewController {
     
     @IBOutlet weak var wakeTimePicker: UIDatePicker!
     
-    @IBOutlet weak var intervalPicker: UIPickerView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        intervalPicker.selectRow(UserDefaults.standard.integer(forKey: "lightUpInterval") / 60 - 1, inComponent: 0, animated: false)
     }
     
     @IBAction func timerStartButtonAction(_ sender: UIButton) {

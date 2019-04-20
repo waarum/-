@@ -22,6 +22,9 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         intervalPicker.selectRow(UserDefaults.standard.integer(forKey: "lightUpInterval"), inComponent: 0, animated: false)
     }
     
+    @IBAction func goBackButton(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
