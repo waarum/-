@@ -19,7 +19,7 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         super.viewDidLoad()
         intervalPicker.dataSource = self
         intervalPicker.delegate = self
-        intervalPicker.selectRow(UserDefaults.standard.integer(forKey: "lightUpInterval"), inComponent: 0, animated: false)
+        intervalPicker.selectRow(UserDefaults.standard.integer(forKey: Keys.lightUpIntervalKey), inComponent: 0, animated: false)
     }
     
     @IBAction func goBackButton(_ sender: UIBarButtonItem) {
@@ -39,7 +39,7 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        UserDefaults.standard.set(row, forKey: "lightUpInterval")
+        UserDefaults.standard.set(row, forKey: Keys.lightUpIntervalKey)
         UserDefaults.standard.synchronize()
         print("Light up interval is \(lightUpIntervals[row])")
     }
