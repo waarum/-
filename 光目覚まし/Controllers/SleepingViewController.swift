@@ -11,7 +11,7 @@ import AVFoundation
 import Foundation
 import AudioToolbox
 
-class SleepingViewController: UIViewController, AVAudioPlayerDelegate, TimerModelDelegate {
+class SleepingViewController: UIViewController, AVAudioPlayerDelegate {
     
     var audioPlayer:AVAudioPlayer!
     
@@ -40,7 +40,7 @@ class SleepingViewController: UIViewController, AVAudioPlayerDelegate, TimerMode
         UIApplication.shared.isIdleTimerDisabled = false
         timerModel.timer.invalidate()
         toggleTorch(with: 0)
-        toggleBackLight(with: 1.0)
+        toggleBackLight(with: 0.3)
         print(UIScreen.main.brightness)
         audioPlayer.stop()
         print("stop")
@@ -73,8 +73,9 @@ class SleepingViewController: UIViewController, AVAudioPlayerDelegate, TimerMode
         print("Sleep for \(interval) seconds")
         return interval
     }
-    
-    //MARK: - Light Manipulation
+}
+//MARK: - Light Manipulation and audio
+extension SleepingViewController: TimerModelDelegate {
     func toggleTorch(with brightness: Float) {
         guard let device = AVCaptureDevice.default(for: .video) else { return }
         
@@ -112,7 +113,7 @@ class SleepingViewController: UIViewController, AVAudioPlayerDelegate, TimerMode
 }
 
 
-
+// Prapare Audio Player
 extension SleepingViewController {
     func prepareAudio(){
         // 再生する audio ファイルのパスを取得
