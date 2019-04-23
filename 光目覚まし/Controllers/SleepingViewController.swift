@@ -17,7 +17,7 @@ class SleepingViewController: UIViewController, AVAudioPlayerDelegate, TimerMode
     
     var timerModel = TimerModel()
     
-    let lightUpInterval = UserDefaults.standard.integer(forKey: "lightUpInterval")
+    let lightUpInterval = UserDefaults.standard.integer(forKey: Keys.lightUpIntervalKey)
     
     var timer: Timer!
     
@@ -27,17 +27,18 @@ class SleepingViewController: UIViewController, AVAudioPlayerDelegate, TimerMode
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.shared.isIdleTimerDisabled = true
-        print(lightUpInterval)
         prepareAudio()
-        sleepingTimer()
+//        sleepingTimer()
         toggleBackLight(with: 0)
         backGroundView.backgroundColor = UIColor.black
         timerModel.delegate = self
+        // for test
+        timerModel.lightUpWithInterval()
     }
     
     @IBAction func stopButton(_ sender: UIButton) {
         UIApplication.shared.isIdleTimerDisabled = false
-        timer.invalidate()
+        timerModel.timer.invalidate()
         toggleTorch(with: 0)
         toggleBackLight(with: 1.0)
         print(UIScreen.main.brightness)
@@ -47,33 +48,6 @@ class SleepingViewController: UIViewController, AVAudioPlayerDelegate, TimerMode
     }
     
     //MARK: - Timer
-    func lightUpTimer(){
-        print("entered to the light up timer")
-        var lightStrength: Float = 0
-        let numberOfIntervals = 10
-        var currentinterval = 0
-        timer = Timer.scheduledTimer(withTimeInterval: Double(lightUpInterval), repeats: true) { (timer) in
-            print("light up timer fires")
-            currentinterval += 1
-            lightStrength = Float(currentinterval) / Float(numberOfIntervals)
-            self.toggleTorch(with: lightStrength)
-            self.toggleBackLight(with: lightStrength)
-            print(lightStrength)
-            if currentinterval >= 10 {
-                self.audioPlayer.play()
-                timer.invalidate()
-            }
-            self.toggleTorch(with: lightStrength)
-        }
-        if timer == nil {
-            print(timer)
-            return
-        }
-        print(1)
-        //        print(AlermSetViewController().setTime())
-    }
-    
-    //MARK: - Start the light up timer
     func sleepingTimer(){
         let sleepInterval = calculateInterval()
         print("start")
@@ -82,7 +56,7 @@ class SleepingViewController: UIViewController, AVAudioPlayerDelegate, TimerMode
             self.timeLabel.text = "おはよう！"
             self.timeLabel.textColor = UIColor.black
             self.backGroundView.backgroundColor = UIColor.white
-            self.lightUpTimer()
+            self.timerModel.lightUpWithInterval()
         }
     }
     
@@ -130,6 +104,10 @@ class SleepingViewController: UIViewController, AVAudioPlayerDelegate, TimerMode
     
     func toggleBackLight(with brightness: Float){
         UIScreen.main.brightness = CGFloat(brightness)
+    }
+    
+    func playAudio(){
+        audioPlayer.play()
     }
 }
 

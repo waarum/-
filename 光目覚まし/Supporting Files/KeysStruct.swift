@@ -10,5 +10,5 @@ import Foundation
 
 struct Keys {
     static let lightUpIntervalKey = "lightUpIntervalKey"
-    
+    static let lightUpIntervalPickerKey = "lightUpIntervalPickerKey"
 }
