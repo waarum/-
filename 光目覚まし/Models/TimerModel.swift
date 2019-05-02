@@ -27,7 +27,7 @@ class TimerModel {
     func lightUpWithInterval(){
         print("entered to the light up timer")
         //test
-        print("Light up interval is \(lightUpInterval)")
+        print("Light up interval is \(lightUpInterval) seconds")
         var lightStrength: Float = 0
         let numberOfIntervals = 10
         var currentinterval = 0

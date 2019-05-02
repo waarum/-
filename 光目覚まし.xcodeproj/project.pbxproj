@@ -393,7 +393,7 @@
 				FE028C34221163E400D34438 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 		FE028C35221163E400D34438 /* Build configuration list for PBXNativeTarget "光目覚まし" */ = {
 			isa = XCConfigurationList;
@@ -402,7 +402,7 @@
 				FE028C37221163E400D34438 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

@@ -16,14 +16,22 @@ class AlarmSetViewController: UIViewController {
     
     @IBOutlet weak var wakeTimePicker: UIDatePicker!
     
+    var time = Date()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        UserDefaults.standard.register(defaults: [Keys.wakeUpTimeKey: time])
+        print(time)
+        if let previousTime = UserDefaults.standard.object(forKey: Keys.wakeUpTimeKey) as? Date {
+        print(previousTime)
+        wakeTimePicker.setDate(previousTime, animated: false)
+        }
     }
     
     @IBAction func timerStartButtonAction(_ sender: UIButton) {
-        UserDefaults.standard.set("\(wakeTimePicker.date.timeIntervalSinceNow)", forKey: "wakeTime")
-        UserDefaults.standard.synchronize()
+        UserDefaults.standard.set(wakeTimePicker.date, forKey: Keys.wakeUpTimeKey)
     }
+    
     
 
     //MARK: - Light Manipulation
