@@ -30,12 +30,10 @@ class SleepingViewController: UIViewController, AVAudioPlayerDelegate {
         super.viewDidLoad()
         UIApplication.shared.isIdleTimerDisabled = true
         prepareAudio()
-        //        sleepingTimer()
         toggleBackLight(with: 0)
         backGroundView.backgroundColor = UIColor.black
         timerModel.delegate = self
-        // for test
-        sleepingTimer()
+        timerModel.sleepingTimer()
     }
     
     @IBAction func stopButton(_ sender: UIButton) {
@@ -116,6 +114,13 @@ extension SleepingViewController: TimerModelDelegate {
     
     func playAudio(){
         audioPlayer.play()
+    }
+    
+    func wakeUp(){
+        self.timeLabel.text = "おはよう！"
+        self.timeLabel.textColor = UIColor.black
+        self.backGroundView.backgroundColor = UIColor.white
+        self.timerModel.lightUpWithInterval()
     }
 }
 
