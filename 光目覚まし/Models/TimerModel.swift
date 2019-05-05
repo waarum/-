@@ -18,7 +18,7 @@ protocol TimerModelDelegate {
 
 class TimerModel {
     
-    var lightUpInterval: Int = UserDefaults.standard.integer(forKey: Keys.lightUpIntervalKey)
+    var lightUpInterval: Int = UserDefaults.standard.integer(forKey: Keys.lightUpInterval)
     
     var timer: Timer!
     

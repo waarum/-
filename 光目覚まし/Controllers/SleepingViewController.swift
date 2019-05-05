@@ -17,7 +17,7 @@ class SleepingViewController: UIViewController, AVAudioPlayerDelegate {
     
     var timerModel = TimerModel()
     
-    let lightUpInterval = UserDefaults.standard.integer(forKey: Keys.lightUpIntervalKey)
+    let lightUpInterval = UserDefaults.standard.integer(forKey: Keys.lightUpInterval)
     
     var timer: Timer!
     
