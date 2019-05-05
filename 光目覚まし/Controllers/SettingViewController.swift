@@ -10,7 +10,8 @@ import UIKit
 
 class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    let lightUpIntervals = [1,5,10,15,20]
+    let lightUpIntervals = [1, 60, 300, 600, 1800]
+    let lightUpIntervalTitles: [String] = ["1秒", "1分","5分","10分", "30分"]
     
     
     @IBOutlet weak var intervalPicker: UIPickerView!
@@ -19,7 +20,9 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
         super.viewDidLoad()
         intervalPicker.dataSource = self
         intervalPicker.delegate = self
-        intervalPicker.selectRow(UserDefaults.standard.integer(forKey: Keys.lightUpIntervalPicker), inComponent: 0, animated: false)
+        if let index = lightUpIntervals.firstIndex(of: UserDefaults.standard.integer(forKey: Keys.lightUpInterval)) {
+            intervalPicker.selectRow(index, inComponent: 0, animated: false)
+        }
     }
     
     @IBAction func goBackButton(_ sender: UIBarButtonItem) {
@@ -34,13 +37,12 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return String(lightUpIntervals[row])
+        return String(lightUpIntervalTitles[row])
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         UserDefaults.standard.set(lightUpIntervals[row], forKey: Keys.lightUpInterval)
-        UserDefaults.standard.set(row, forKey: Keys.lightUpIntervalPicker)
-        print("Light up interval is \(lightUpIntervals[row])")
+        print("Light up interval is \(lightUpIntervals[row]) seconds")
     }
 }
