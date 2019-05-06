@@ -23,7 +23,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="startButton"/>
                                 <connections>
-                                    <segue destination="deP-PV-JcP" kind="presentation" identifier="toSleepingView" id="xfd-pw-Pin"/>
+                                    <action selector="startButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="07r-eU-2Nq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yrk-jv-Thu">
@@ -44,6 +44,7 @@
                     </view>
                     <connections>
                         <outlet property="wakeUpTimePicker" destination="t9U-gW-JYW" id="r6P-zU-yPI"/>
+                        <segue destination="deP-PV-JcP" kind="show" identifier="toSleepingView" id="1DJ-6e-QYV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

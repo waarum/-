@@ -13,6 +13,7 @@
 		FE028C2E221163E400D34438 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FE028C2D221163E400D34438 /* Assets.xcassets */; };
 		FE028C31221163E400D34438 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FE028C2F221163E400D34438 /* LaunchScreen.storyboard */; };
 		FE19C52F223A952500FECA38 /* SleepingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE19C52E223A952500FECA38 /* SleepingViewController.swift */; };
+		FE3EFD252280028200977CE3 /* TestFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3EFD242280028200977CE3 /* TestFlags.swift */; };
 		FE564564226AC9C100B1B62B /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE564563226AC9C100B1B62B /* Keys.swift */; };
 		FE80155A223B784A006548B2 /* ColorHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE801559223B784A006548B2 /* ColorHex.swift */; };
 		FE80155E223B9818006548B2 /* 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FE80155D223B9818006548B2 /* 1.mp3 */; };
@@ -29,6 +30,7 @@
 		FE028C30221163E400D34438 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FE028C32221163E400D34438 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FE19C52E223A952500FECA38 /* SleepingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepingViewController.swift; sourceTree = "<group>"; };
+		FE3EFD242280028200977CE3 /* TestFlags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFlags.swift; sourceTree = "<group>"; };
 		FE564563226AC9C100B1B62B /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		FE801559223B784A006548B2 /* ColorHex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHex.swift; sourceTree = "<group>"; };
 		FE80155D223B9818006548B2 /* 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1.mp3; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				FE801559223B784A006548B2 /* ColorHex.swift */,
 				FE028C32221163E400D34438 /* Info.plist */,
 				FE564563226AC9C100B1B62B /* Keys.swift */,
+				FE3EFD242280028200977CE3 /* TestFlags.swift */,
 				FE028C2D221163E400D34438 /* Assets.xcassets */,
 			);
 			path = "Supporting Files";
@@ -199,6 +202,7 @@
 				FE028C29221163E000D34438 /* AlarmSetViewController.swift in Sources */,
 				FE564564226AC9C100B1B62B /* Keys.swift in Sources */,
 				FE028C27221163E000D34438 /* AppDelegate.swift in Sources */,
+				FE3EFD252280028200977CE3 /* TestFlags.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

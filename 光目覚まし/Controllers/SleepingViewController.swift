@@ -19,7 +19,7 @@ class SleepingViewController: UIViewController, AVAudioPlayerDelegate {
     
     var timerModel = TimerModel()
     
-    let lightUpInterval = UserDefaults.standard.integer(forKey: Keys.lightUpInterval)
+    var sleepInterval: Double = 0
     
     var timer: Timer!
     
@@ -33,6 +33,7 @@ class SleepingViewController: UIViewController, AVAudioPlayerDelegate {
         toggleBackLight(with: 0)
         backGroundView.backgroundColor = UIColor.black
         timerModel.delegate = self
+        timerModel.sleepInterval = sleepInterval
         timerModel.sleepingTimer()
     }
     
@@ -81,6 +82,7 @@ class SleepingViewController: UIViewController, AVAudioPlayerDelegate {
 }
 //MARK: - Light Manipulation and audio
 extension SleepingViewController: TimerModelDelegate {
+    
     func toggleTorch(with brightness: Float) {
         guard let device = AVCaptureDevice.default(for: .video) else { return }
         
