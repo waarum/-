@@ -13,11 +13,13 @@ import AudioToolbox
 
 class SleepingViewController: UIViewController, AVAudioPlayerDelegate {
     
+    let defaults = UserDefaults.standard
+    
     var audioPlayer:AVAudioPlayer!
     
     var timerModel = TimerModel()
     
-    let lightUpInterval = UserDefaults.standard.integer(forKey: Keys.lightUpIntervalKey)
+    let lightUpInterval = UserDefaults.standard.integer(forKey: Keys.lightUpInterval)
     
     var timer: Timer!
     
@@ -28,12 +30,10 @@ class SleepingViewController: UIViewController, AVAudioPlayerDelegate {
         super.viewDidLoad()
         UIApplication.shared.isIdleTimerDisabled = true
         prepareAudio()
-//        sleepingTimer()
         toggleBackLight(with: 0)
         backGroundView.backgroundColor = UIColor.black
         timerModel.delegate = self
-        // for test
-        timerModel.lightUpWithInterval()
+        timerModel.sleepingTimer()
     }
     
     @IBAction func stopButton(_ sender: UIButton) {
@@ -62,16 +62,21 @@ class SleepingViewController: UIViewController, AVAudioPlayerDelegate {
     
     //MARK: - Caluculate sleep Interval
     func calculateInterval() -> Double {
-        var interval = UserDefaults.standard.double(forKey: "wakeTime")
+        let hour = defaults.integer(forKey: Keys.hour)
+        let minute = defaults.integer(forKey: Keys.minute)
+        let wakeUpTimeInSeconds = (hour * 60 + minute) * 60
+        let calendar = Calendar(identifier: .gregorian)
+        let date = Date()
+        let currentTime = calendar.dateComponents([.hour, .minute, .second], from: date)
+        let currentHourInSeconds = currentTime.hour! * 3600
+        let currentMinuteInSeconds = currentTime.minute! * 60
+        let currenTimeInSeconds = currentHourInSeconds + currentMinuteInSeconds + currentTime.second!
+        var interval = wakeUpTimeInSeconds - currenTimeInSeconds
         if interval < 0 {
-            interval = 864000 + interval
+            interval = interval + 60 * 60 * 24
         }
-        interval = interval - Double(lightUpInterval) * 10
-        //        if interval < 0 {
-        //            self.dismiss(animated: true, completion: nil)
-        //        }
-        print("Sleep for \(interval) seconds")
-        return interval
+        print("Sleep for \(interval / 3600):\((interval / 60) % 60):\(interval % 60)")
+        return Double(interval)
     }
 }
 //MARK: - Light Manipulation and audio
@@ -109,6 +114,13 @@ extension SleepingViewController: TimerModelDelegate {
     
     func playAudio(){
         audioPlayer.play()
+    }
+    
+    func wakeUp(){
+        self.timeLabel.text = "おはよう！"
+        self.timeLabel.textColor = UIColor.black
+        self.backGroundView.backgroundColor = UIColor.white
+        self.timerModel.lightUpWithInterval()
     }
 }
 

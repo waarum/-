@@ -32,8 +32,6 @@
 		FE564563226AC9C100B1B62B /* KeysStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeysStruct.swift; sourceTree = "<group>"; };
 		FE801559223B784A006548B2 /* ColorHex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorHex.swift; sourceTree = "<group>"; };
 		FE80155D223B9818006548B2 /* 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1.mp3; sourceTree = "<group>"; };
-		FEA8BEAD223AB78400980B4B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
-		FEA8BEAE223AB78400980B4B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		FEC70E522264AE9F0059303E /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		FEC70E542264B8090059303E /* TimerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,6 +147,11 @@
 					FE028C22221163DF00D34438 = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1020;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -159,7 +162,6 @@
 			knownRegions = (
 				en,
 				Base,
-				ja,
 			);
 			mainGroup = FE028C1A221163DF00D34438;
 			productRefGroup = FE028C24221163E000D34438 /* Products */;
@@ -207,7 +209,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				FE028C2B221163E000D34438 /* Base */,
-				FEA8BEAD223AB78400980B4B /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -216,7 +217,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				FE028C30221163E400D34438 /* Base */,
-				FEA8BEAE223AB78400980B4B /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

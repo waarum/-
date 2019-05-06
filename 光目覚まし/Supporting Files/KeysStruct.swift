@@ -9,7 +9,9 @@
 import Foundation
 
 struct Keys {
-    static let lightUpIntervalKey = "lightUpIntervalKey"
-    static let lightUpIntervalPickerKey = "lightUpIntervalPickerKey"
-    static let wakeUpTimeKey = "wakeUpTimeKey"
+
+    static let lightUpInterval = "lightUpIntervalKey"
+    static let hour = "hourKey"
+    static let minute = "minuteKey"
+
 }
