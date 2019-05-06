@@ -23,7 +23,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="startButton"/>
                                 <connections>
-                                    <action selector="timerStartButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="y8I-nF-N9N"/>
                                     <segue destination="deP-PV-JcP" kind="presentation" identifier="toSleepingView" id="xfd-pw-Pin"/>
                                 </connections>
                             </button>
