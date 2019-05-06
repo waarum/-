@@ -8,10 +8,10 @@
 
 import UIKit
 
-class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class SettingViewController: UIViewController {
     
     let lightUpIntervals = [1, 60, 300, 600, 1800]
-    let lightUpIntervalTitles: [String] = ["1秒", "1分","5分","10分", "30分"]
+    let lightUpIntervalTitles: [String] = ["1 secdond", "1 minute","5 minutes","10 minutes", "30 minutes"]
     
     
     @IBOutlet weak var intervalPicker: UIPickerView!
@@ -28,6 +28,11 @@ class SettingViewController: UIViewController, UIPickerViewDelegate, UIPickerVie
     @IBAction func goBackButton(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+}
+
+// Picker view setting
+extension SettingViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
