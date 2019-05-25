@@ -25,16 +25,18 @@ class SleepingViewController: UIViewController, AVAudioPlayerDelegate {
     
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet var backGroundView: UIView!
+    @IBOutlet var tapGestureRecognizer: UITapGestureRecognizer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.shared.isIdleTimerDisabled = true
         prepareAudio()
-        toggleBackLight(with: 0)
         backGroundView.backgroundColor = UIColor.black
         timerModel.delegate = self
         timerModel.sleepInterval = sleepInterval
         timerModel.sleepingTimer()
+        tapGestureRecognizer.isEnabled = true
+        growForAMoment(3)
     }
     
     @IBAction func stopButton(_ sender: UIButton) {
@@ -79,6 +81,17 @@ class SleepingViewController: UIViewController, AVAudioPlayerDelegate {
         print("Sleep for \(interval / 3600):\((interval / 60) % 60):\(interval % 60)")
         return Double(interval)
     }
+    @IBAction func screenTapped(_ sender: UITapGestureRecognizer) {
+        growForAMoment(5)
+    }
+    
+    func growForAMoment(_ interval: Double){
+        toggleBackLight(with: 0.3)
+        timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: false, block: { (Timer) in
+            self.toggleBackLight(with: 0.0)
+        })
+    }
+    
 }
 //MARK: - Light Manipulation and audio
 extension SleepingViewController: TimerModelDelegate {
@@ -123,6 +136,7 @@ extension SleepingViewController: TimerModelDelegate {
         self.timeLabel.textColor = UIColor.black
         self.backGroundView.backgroundColor = UIColor.white
         self.timerModel.lightUpWithInterval()
+        tapGestureRecognizer.isEnabled = false
     }
 }
 
